@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-        xmlns:lp="http://localisationPersonnel.com/lp/schemas"
+        xmlns:lp="http://localisationPersonnel.com/inscription/schema"
         elementFormDefault="qualified"
-        targetNamespace="http://localisationPersonnel.com/lp/schemas">
+        targetNamespace="http://localisationPersonnel.com/inscription/schema">
     <xs:element name="inscriptionUtilisateurRequest">
         <xs:complexType>
             <xs:all>
