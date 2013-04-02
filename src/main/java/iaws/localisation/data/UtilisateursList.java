@@ -2,6 +2,7 @@ package iaws.localisation.data;
 
 import iaws.localisation.domain.Utilisateur;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class UtilisateursList {
 	static UtilisateursList instance = null;
 	
 	private UtilisateursList() {
-		
+		utilisateurs = new ArrayList<Utilisateur>();
 	}
 	
 	public static UtilisateursList getInstance() {

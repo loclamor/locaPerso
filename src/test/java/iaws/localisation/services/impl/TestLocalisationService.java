@@ -33,6 +33,6 @@ public class TestLocalisationService extends TestCase {
 	 public void testListerVoisins() {
 		 ls = new LocalisationServiceImpl();
 		 List<Utilisateur> users = ls.listerVoisins("garrett.W@univ-tlse3.fr", 5);
-		 assertNull(users);
+		 assertEquals("pas d'utilisateur", 0, users.size());
 	 }
 }
