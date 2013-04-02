@@ -12,8 +12,6 @@
 		<finalName>locaPerso</finalName>
 	</build>
 	<dependencies>
-
-
 		<dependency>
 			<groupId>org.springframework.ws</groupId>
 			<artifactId>spring-ws-core</artifactId>
@@ -46,7 +44,5 @@
 			<artifactId>mailapi</artifactId>
 			<version>1.4.3</version>
 		</dependency>
-
-
 	</dependencies>
 </project>

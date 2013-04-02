@@ -1,7 +1,6 @@
 package iaws.localisation.ws.contractfirst;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ws.server.endpoint.*;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -9,8 +8,6 @@ import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 //import com.mycompany.hr.service.HumanResourceService;
 import org.jdom.Element;
 import org.jdom.JDOMException;
-import org.jdom.Namespace;
-import org.jdom.xpath.XPath;
 
 @Endpoint
 public class LocalisationEndpoint {
