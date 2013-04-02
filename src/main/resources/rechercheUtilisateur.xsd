@@ -7,7 +7,7 @@
     	<xs:complexType>
 	    	<xs:sequence>
 	    		<xs:element name="identifiant" type="xs:string"/>
-	    		<xs:element name="rayonRecherche" type="xs:int"/>
+	    		<xs:element name="rayonRecherche" type="xs:double"/>
 	    	</xs:sequence>
     	</xs:complexType>
     </xs:element>
