@@ -4,6 +4,10 @@ public class Coordonnees {
 	private double latitude;
 	private double longitude;
 	
+	public Coordonnees(double latitude, double longitude) {
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
 	public double getLatitude() {
 		return latitude;
 	}
@@ -51,6 +55,10 @@ public class Coordonnees {
 										)
 							);
 		return distance <= rayon;
+	}
+	
+	public boolean estValide() {
+		return (!Double.isNaN(latitude) && !Double.isNaN(longitude));
 	}
 	
 }
