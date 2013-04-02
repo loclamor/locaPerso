@@ -22,8 +22,6 @@ public class TestInscriptionService extends TestCase{
 
 	public void setUp() throws Exception {
 		 super.setUp();
-		 
-		 is = new InscriptionServiceImpl();
 	 }
 	
 	 public void tearDown() throws Exception {
@@ -31,6 +29,7 @@ public class TestInscriptionService extends TestCase{
 	 }
 	 
 	 public void testInscrireUtilisateur() {
+		 is = new InscriptionServiceImpl();
 		 Utilisateur u1 = new Utilisateur();
 		 u1.setNom("BLANC");
 		 u1.setPrenom("Michel");
