@@ -10,7 +10,7 @@ import iaws.localisation.services.LocalisationService;
 
 public class LocalisationServiceImpl implements LocalisationService{
 
-	@Override
+	
 	public List<Utilisateur> listerVoisins(String email, double rayon) {
 		if (null != email) {
 			List<Utilisateur> listVoisins = new ArrayList<Utilisateur>();

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:lp="http://localisationPersonnel.com/inscription/schema"
+        elementFormDefault="qualified"
+        targetNamespace="http://localisationPersonnel.com/inscription/schema">
+    <xs:element name="inscriptionUtilisateurRequest">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="utilisateur" type="lp:UtilisateurType"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+	<xs:element name="inscriptionUtilisateurResponse">
+        <xs:complexType>
+        	<xs:sequence>
+        		<xs:element name="reponse" minOccurs="1" maxOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="KO" />
+							<xs:enumeration value="OK" />
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="erreur" minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="code" minOccurs="1" maxOccurs="1">
+								<xs:simpleType>
+									<xs:restriction base="xs:int">
+										<xs:enumeration value="100" />
+										<xs:enumeration value="110" />
+										<xs:enumeration value="200" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+							<xs:element name="description" type="xs:string" minOccurs="1" maxOccurs="1" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+        	</xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="UtilisateurType">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prenom" type="xs:string"/>
+            <xs:element name="adresseEmail" type="xs:string"/>
+            <xs:element name="adressePostale" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

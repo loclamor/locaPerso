@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:lp="http://localisationPersonnel.com/rechercheProche/schema"
+        elementFormDefault="qualified"
+        targetNamespace="http://localisationPersonnel.com/rechercheProche/schema">
+    <xs:element name="rechercheUtilisateursProchesRequest">
+    	<xs:complexType>
+	    	<xs:sequence>
+	    		<xs:element name="identifiant" type="xs:string"/>
+	    		<xs:element name="rayonRecherche" type="xs:double"/>
+	    	</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    <xs:element name="rechercheUtilisateursProchesResponse">
+    	<xs:complexType>
+    		<xs:sequence>
+    			<xs:element name="utilisateurProche" type="lp:UtilisateurType" minOccurs="0" maxOccurs="unbounded"/>
+    		</xs:sequence>
+    	</xs:complexType>
+    </xs:element>
+    <xs:complexType name="UtilisateurType">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prenom" type="xs:string"/>
+            <xs:element name="adresseEmail" type="xs:string"/>
+            <xs:element name="adressePostale" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
