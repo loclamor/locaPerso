@@ -1,7 +1,13 @@
 package iaws.localisation.ws.contractfirst;
 
+import java.util.Iterator;
+import java.util.List;
+
 import iaws.localisation.domain.Utilisateur;
+import iaws.localisation.domain.UtilisateursList;
 import iaws.localisation.services.LocalisationService;
+import iaws.localisation.services.impl.InscriptionServiceImpl;
+import iaws.localisation.services.impl.LocalisationServiceImpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
@@ -30,7 +36,49 @@ public class LocalisationEndpoint {
 	public Element handleRechercheUtilisateurRequest(@RequestPayload Element rechercheUtilisateursProchesRequest)
 			throws Exception
 	{
-		return rechercheUtilisateursProchesRequest;
+		LocalisationServiceImpl localisationService = new LocalisationServiceImpl();
+		
+		XPath expEmail = XPath.newInstance("//lp:identifiant");
+		expEmail.addNamespace("lp", "http://localisationPersonnel.com/rechercheProche/schema");
+		String email = expEmail.valueOf(rechercheUtilisateursProchesRequest);
+		
+		XPath expRayon = XPath.newInstance("//lp:rayonRecherche");
+		expRayon.addNamespace("lp", "http://localisationPersonnel.com/rechercheProche/schema");
+		double rayon = Double.parseDouble(expRayon.valueOf(rechercheUtilisateursProchesRequest));
+		
+		List<Utilisateur> users = localisationService.listerVoisins(email, rayon);
+		
+		Element rechercheReponseBase = new Element("rechercheUtilisateursProchesResponse");
+		if(users != null)
+		{
+			Iterator<Utilisateur> itu = users.iterator();
+			
+			while(itu.hasNext()) {
+				Utilisateur user = itu.next();
+				
+				Element rechercheReponseUtilisateur = new Element("utilisateurProche");
+				
+				Element rechercheReponseUtilisateurNom = new Element("nom");
+				rechercheReponseUtilisateurNom.setText(user.getNom());
+				rechercheReponseUtilisateur.addContent(rechercheReponseUtilisateurNom);
+				
+				Element rechercheReponseUtilisateurPrenom = new Element("prenom");
+				rechercheReponseUtilisateurPrenom.setText(user.getPrenom());
+				rechercheReponseUtilisateur.addContent(rechercheReponseUtilisateurPrenom);
+				
+				Element rechercheReponseUtilisateurEmail = new Element("adresseEmail");
+				rechercheReponseUtilisateurEmail.setText(user.getAdresseEmail());
+				rechercheReponseUtilisateur.addContent(rechercheReponseUtilisateurEmail);
+				
+				Element rechercheReponseUtilisateurAdresse = new Element("adressePostale");
+				rechercheReponseUtilisateurAdresse.setText(user.getAdressePostale());
+				rechercheReponseUtilisateur.addContent(rechercheReponseUtilisateurAdresse);
+				
+				rechercheReponseBase.addContent(rechercheReponseUtilisateur);
+			}
+		}
+		
+		return rechercheReponseBase;
 
 	}
 	
@@ -40,7 +88,9 @@ public class LocalisationEndpoint {
 	public Element handleInscriptionUtilisateurRequest(@RequestPayload Element inscriptionUtilisateurRequest)
 			throws Exception
 	{
+		InscriptionServiceImpl inscriptionService = new InscriptionServiceImpl();
 		Utilisateur user = new Utilisateur();
+		
 		XPath expNom = XPath.newInstance("//lp:nom");
 		expNom.addNamespace("lp", "http://localisationPersonnel.com/inscription/schema");
 		user.setNom(expNom.valueOf(inscriptionUtilisateurRequest));
@@ -58,8 +108,7 @@ public class LocalisationEndpoint {
 		user.setAdressePostale(expNom.valueOf(inscriptionUtilisateurRequest));
 		
 		int responseCode = 0;
-		//TODO: verifier adresseEmail Unique et Correcte
-		//responseCode = LocalisationService.ajouterUtilisateur(user);
+		responseCode = inscriptionService.inscrireUtilisateur(user);
 		
 		//TODO: obtenir les coordonnées à partir de openStreetMap
 		//responseCode = openStreetMap.verifAdresse(user.adresse);
