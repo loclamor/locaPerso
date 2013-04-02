@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rechercheUtilisateursProchesResponse
+		xmlns="http://localisationPersonnel.com/rechercheProche/schema"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://localisationPersonnel.com/rechercheProche/schema rechercheUtilisateur.xsd">
+	<utilisateurProche>
+		<nom>FAVIER</nom>
+		<prenom>Loïc</prenom>
+		<adresseEmail>favier.loic@univ-tlse3.fr</adresseEmail>
+		<adressePostale>7, rue saint thomas d'aquin, 31400, TOULOUSE</adressePostale>
+	</utilisateurProche>
+	<utilisateurProche>
+		<nom>JANDIN</nom>
+		<prenom>Guillaume</prenom>
+		<adresseEmail>jandin.guillaume@univ-tlse3.fr</adresseEmail>
+		<adressePostale>adresse</adressePostale>
+	</utilisateurProche>
+</rechercheUtilisateursProchesResponse>

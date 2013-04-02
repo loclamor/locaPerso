@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rechercheUtilisateursProchesRequest
+		xmlns="http://localisationPersonnel.com/rechercheProche/schema"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://localisationPersonnel.com/rechercheProche/schema rechercheUtilisateur.xsd">
+	<identifiant>favier.loic@univ-tlse3.fr</identifiant>
+	<rayonRecherche>10</rayonRecherche>
+</rechercheUtilisateursProchesRequest>
