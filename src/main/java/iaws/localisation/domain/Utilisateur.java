@@ -1,5 +1,9 @@
 package iaws.localisation.domain;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+
 public class Utilisateur {
 	private String nom;
 	private String prenom;
@@ -42,6 +46,19 @@ public class Utilisateur {
 		return "Utilisateur [nom=" + nom + ", prenom=" + prenom
 				+ ", adresseEmail=" + adresseEmail + ", adressePostale="
 				+ adressePostale + "]";
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Utilisateur) {
+			Utilisateur u = (Utilisateur) obj;
+			return this.getAdresseEmail().equals(u.adresseEmail);
+		}
+		return false;
+	}
+	public boolean isEmailAdress(){
+		Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$");
+		Matcher m = p.matcher(this.adresseEmail.toUpperCase());
+		return m.matches();
 	}
 	
 	
