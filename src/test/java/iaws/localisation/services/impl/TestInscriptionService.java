@@ -54,7 +54,7 @@ public class TestInscriptionService extends TestCase{
 		 Utilisateur u4 = new Utilisateur();
 		 u4.setNom("DEPARDIEU");
 		 u4.setPrenom("Gérard");
-		 u4.setAdresseEmail("gerard.depardieu@gmail.com");
+		 u4.setAdresseEmail("gerard.depardieu@univ-tlse3.fr");
 		 u4.setAdressePostale("rue nimporteou, 31000 TOULOUSE");
 		 assertEquals("inscription : adresse postale inconnue", 200, is.inscrireUtilisateur(u4));
 	 }

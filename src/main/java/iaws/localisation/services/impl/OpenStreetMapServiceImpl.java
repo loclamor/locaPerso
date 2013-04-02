@@ -29,7 +29,7 @@ public class OpenStreetMapServiceImpl implements OpenStreetMapService {
 		try {
 			HttpGet httpget = new HttpGet(
 					"http://nominatim.openstreetmap.org/search?format=xml&limit=1&q="
-							+ adresse);
+							+ adresse.replace(' ', '+'));
 			ResponseHandler<String> gestionnaire_reponse = new BasicResponseHandler();
 
 			try {

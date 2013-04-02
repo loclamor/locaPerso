@@ -11,7 +11,7 @@ public class InscriptionServiceImpl implements InscriptionService {
 	public int inscrireUtilisateur(Utilisateur utilisateur) {
 		
 		//adresse email deja utilisee
-		if (UtilisateursList.getInstance().search(utilisateur.getAdresseEmail()) == null)
+		if (UtilisateursList.getInstance().search(utilisateur.getAdresseEmail()) != null)
 			return 100;
 		
 		//adresse email invalide
@@ -21,6 +21,8 @@ public class InscriptionServiceImpl implements InscriptionService {
 		//adresse postale non connue de open street map
 		OpenStreetMapServiceImpl osmService = new OpenStreetMapServiceImpl();
 		Coordonnees coords = osmService.getCoordonneesAdresse(utilisateur.getAdressePostale());
+		if ( coords == null )
+			return 200;
 		if (!coords.estValide())
 			return 200;
 		//sauvegarde des informations de l utilisateur et des coordonnees de l adresse postale 
