@@ -1,4 +1,4 @@
-package iaws.localisation.ws.domain;
+package iaws.localisation.domain;
 
 public class Utilisateur {
 	private String nom;

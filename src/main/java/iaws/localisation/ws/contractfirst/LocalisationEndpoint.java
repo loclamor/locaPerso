@@ -1,5 +1,7 @@
 package iaws.localisation.ws.contractfirst;
 
+import iaws.localisation.services.LocalisationService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -12,6 +14,8 @@ import org.jdom.JDOMException;
 @Endpoint
 public class LocalisationEndpoint {
 
+	private LocalisationService localisationService;
+	
 	@Autowired
 	public LocalisationEndpoint() throws JDOMException {
 
