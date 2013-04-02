@@ -1,5 +1,6 @@
 package iaws.localisation.domain;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class UtilisateursList {
@@ -32,5 +33,20 @@ public class UtilisateursList {
 	
 	public int count() {
 		return this.utilisateurs.size();
+	}
+	
+	public Utilisateur search(String email) {
+		
+		Iterator<Utilisateur> itu = this.utilisateurs.iterator();
+		Utilisateur utilisateurTrouve = null;
+		while(itu.hasNext()){
+			Utilisateur utilisateurCourant = itu.next();
+			if(utilisateurCourant.getAdresseEmail().equals(email)){
+				utilisateurTrouve = utilisateurCourant;
+			}
+		}
+		
+		return utilisateurTrouve;
+		
 	}
 }
