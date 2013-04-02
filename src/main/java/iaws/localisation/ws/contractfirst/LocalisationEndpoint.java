@@ -3,8 +3,8 @@ package iaws.localisation.ws.contractfirst;
 import java.util.Iterator;
 import java.util.List;
 
+import iaws.localisation.data.UtilisateursList;
 import iaws.localisation.domain.Utilisateur;
-import iaws.localisation.domain.UtilisateursList;
 import iaws.localisation.services.LocalisationService;
 import iaws.localisation.services.impl.InscriptionServiceImpl;
 import iaws.localisation.services.impl.LocalisationServiceImpl;

@@ -1,7 +1,7 @@
 package iaws.localisation.services.impl;
 
+import iaws.localisation.data.UtilisateursList;
 import iaws.localisation.domain.Utilisateur;
-import iaws.localisation.domain.UtilisateursList;
 import iaws.localisation.services.InscriptionService;
 
 public class InscriptionServiceImpl implements InscriptionService {
